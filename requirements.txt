@@ -1,15 +1,15 @@
-beautifulsoup4
-requests
-matplotlib
-pandas
-requests-html
-lxml[html_clean]
-selenium
-webdriver-manager
-scrapingbee
-scrapy
-pyyaml
-nbformat
-nbclient
+# beautifulsoup4
+# requests
+# matplotlib
+# pandas
+# requests-html
+# lxml[html_clean]
+# selenium
+# webdriver-manager
+# scrapingbee
+# scrapy
+# pyyaml
+# nbformat
+# nbclient
 pydantic
 firecrawl-py
