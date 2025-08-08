@@ -21,23 +21,23 @@ class Product(BaseModel):
     url: str = Field(description="The URL of the product")
 
     topics: list[str] = Field(
-        description="A list of topics the product belongs to. Can " \
-        "be found below the product description"
+        description="A list of topics the product belongs to. Can be found below the product description."
     )
+
     n_upvotes: int = Field(description="The number of upvotes the product has")
-    n_omments: int = Field("The number of comments the product has")
+    n_comments: int = Field(description="The number of comments the product has")
 
     rank: int = Field(
-        description= "The rank of the product on Product Hunt's Yesterday's Top Products section"
+        description="The rank of the product on Product Hunt's Yesterday's Top Products section."
     )
-    logo_url: str = Field(description="The URL of the product's logo")
+    logo_url: str = Field(description="The URL of the product's logo.")
 
 # a pydantic class for crawling a collection of Products from Yesterday's Top 
 # Product list
 
 class YesterdayTopProducts(BaseModel):
-    products: list[Product] =Field(
-        description = "A list of top products from yesterday on Product Hunt"
+    products: list[Product] = Field(
+        description="A list of top products from yesterday on Product Hunt."
     )
 
 # Define a function that scrapes ProductHunt based on the schema above
@@ -45,12 +45,13 @@ class YesterdayTopProducts(BaseModel):
 
 BASE_URL = "https://www.producthunt.com"
 
+
 def get_yesterday_top_products():
     app = FirecrawlApp()
 
     data = app.scrape_url(
         BASE_URL,
-                params={
+        params={
             "formats": ["extract"],
             "extract": {
                 "schema": YesterdayTopProducts.model_json_schema(),

@@ -29,9 +29,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run scraper
-        env:
-          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
-        run: python scraper.py
+      
+        run: scrapy crawl products --output results.json
 
       - name: Commit and push if changes
         run: |
